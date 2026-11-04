@@ -28,3 +28,5 @@ The artwork is a red monochrome adaptation of ASCII Magic's Torus Knot, embedded
 
 
 The personal focus and stack reflect technologies named by the owner, with earlier web-app and FiveM conversations reviewed for context. The profile lists Next.js, React, JavaScript, HTML, FiveM, Lua, and C++ without claiming a usage ranking, experience level, or proficiency percentage. No private project names, chat excerpts, or repository details are published. The featured project's current stable version comes from its public releases.
+
+Location, ownership of openowl.cc and valkbypass.com, current-work wording, and both Discord handles/IDs were supplied and approved for this profile by the owner. Website links are provided without claims about their features or availability. Clickable project and Discord links are normal README links below the SVG; arrows inside the image are decorative.

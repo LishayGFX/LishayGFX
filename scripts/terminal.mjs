@@ -156,7 +156,7 @@ ${icon('nodedotjs',688,724,25)}<text class="t-human" x="725" y="746" fill="#efef
 <text class="t-human" x="688" y="791" fill="#8f8f9c" font-size="13">Custom DLLs &amp; discord.js</text>
 
 <text class="t-human" x="42" y="855" fill="#c8c8d1" font-size="17">Activity</text>
-<text class="t-human" x="958" y="817" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text></g>
+<text class="t-human" x="958" y="855" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text></g>
 </g>
 </g>
 <g class="t-activity">${nestedSnake}</g>

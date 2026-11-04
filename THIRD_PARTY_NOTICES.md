@@ -23,3 +23,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Project branding
+
+OpenOwl wing logo: https://openowl.cc/assets/logo-wing-small.svg. Valk logo: https://valkbypass.com/assets/valk-newlogo-single.png (resampled to a small transparent PNG for display). Retrieved 2026-11-04 from the project websites at the project owner's request. Brand assets remain the property of their respective owners.
+
+## Simple Icons
+
+Discord, Next.js, React, JavaScript, HTML5, Lua and C++ icons are from https://github.com/simple-icons/simple-icons/tree/develop/icons, retrieved 2026-11-04. Simple Icons distributes its icon collection under CC0 1.0; see assets/brands/SIMPLE-ICONS-LICENSE.md. Brand trademarks remain with their owners.

@@ -41,6 +41,19 @@ const nestedSnake = snake.replace('<svg ', '<svg x="42" y="997" width="916" heig
 const art = await readFile('assets/ascii-knot.svg', 'utf8');
 if (!/^<svg\s/.test(art) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\s*=|(?:href|xlink:href)\s*=/i.test(art)) throw new Error('Unexpected artwork content');
 const nestedArt = art.replace('width="384" height="256"', 'x="24" y="77" width="430" height="279"');
+const brandNames = ['openowl','valk','discord','nextdotjs','react','javascript','html5','lua','cplusplus'];
+const brands = Object.fromEntries(await Promise.all(brandNames.map(async name => {
+  const svg = await readFile('assets/brands/' + name + '.svg', 'utf8');
+  if (/<(?:script|foreignObject|iframe)\b|\son\w+\s*=/i.test(svg)) throw new Error('Unexpected brand SVG');
+  return [name, svg];
+})));
+function icon(name, x, y, size = 24, width = size) {
+  // All logos are checked-in assets; the only raster is a local PNG data URI.
+  return brands[name].replace(/<svg[^>]*>/, (root) => {
+    const viewBox = root.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 24 24';
+    return '<svg x="' + x + '" y="' + y + '" width="' + width + '" height="' + size + '" viewBox="' + viewBox + '" fill="#b6b6c4" preserveAspectRatio="xMidYMid meet">';
+  });
+}
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1340" viewBox="0 0 1000 1340" role="img" aria-labelledby="profileTitle profileDesc">
 <title id="profileTitle">LishayGFX</title>
 <desc id="profileDesc">Based in Israel. Owner of openowl.cc and valkbypass.com. Working on new projects and developing current ones. Discord: lishaygfx and neverwentlegit. Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM work, mostly through vibe coding. Stack: Next.js, React, JavaScript, HTML, FiveM, Lua and C++. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
@@ -94,12 +107,14 @@ ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" f
 <text class="t-human" x="60" y="404" fill="#b6b6c1" font-size="18">Building new projects and improving my current ones.</text>
 <text class="t-human" x="42" y="452" fill="#c8c8d1" font-size="17">Projects</text>
 <rect x="42" y="474" width="448" height="96" rx="8" fill="url(#t-card)" stroke="#302a30"/>
-<text class="t-human" x="64" y="513" fill="#efeff4" font-size="25">openowl.cc</text>
-<text class="t-human" x="64" y="545" fill="#a8a8b4" font-size="15">Owner</text>
+${icon('openowl',62,494,49,64)}
+<text class="t-human" x="146" y="513" fill="#efeff4" font-size="25">openowl.cc</text>
+<text class="t-human" x="146" y="545" fill="#a8a8b4" font-size="15">OSINT system</text>
 <path d="M449 498h13v13m0-13-13 13" stroke="#d26873" stroke-width="1.7" fill="none"/>
 <rect x="510" y="474" width="448" height="96" rx="8" fill="url(#t-card)" stroke="#302a30"/>
-<text class="t-human" x="532" y="513" fill="#efeff4" font-size="25">valkbypass.com</text>
-<text class="t-human" x="532" y="545" fill="#a8a8b4" font-size="15">Owner</text>
+${icon('valk',526,482,80)}
+<text class="t-human" x="614" y="513" fill="#efeff4" font-size="25">valkbypass.com</text>
+<text class="t-human" x="614" y="545" fill="#a8a8b4" font-size="15">FiveM bypass method</text>
 <path d="M917 498h13v13m0-13-13 13" stroke="#d26873" stroke-width="1.7" fill="none"/>
 <g transform="translate(0 172)">
 
@@ -122,12 +137,15 @@ ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" f
 <text class="t-human" x="42" y="608" fill="#c8c8d1" font-size="17">Stack</text>
 <rect x="42" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
 <text class="t-human" x="64" y="663" fill="#a5a5b2" font-size="16">Web</text>
-<text class="t-human" x="64" y="705" fill="#efeff4" font-size="26">Next.js <tspan fill="#555561">/</tspan> React</text>
-<text class="t-human" x="64" y="746" fill="#aaaab7" font-size="17">JavaScript <tspan fill="#555561">·</tspan> HTML</text>
+${icon('nextdotjs',64,682,25)}<text class="t-human" x="102" y="705" fill="#efeff4" font-size="25">Next.js</text>
+${icon('react',246,682,25)}<text class="t-human" x="284" y="705" fill="#efeff4" font-size="25">React</text>
+${icon('javascript',64,727,21)}<text class="t-human" x="96" y="746" fill="#aaaab7" font-size="17">JavaScript</text>
+${icon('html5',246,727,21)}<text class="t-human" x="278" y="746" fill="#aaaab7" font-size="17">HTML</text>
 <path d="m447 650-9 9 9 9m17-18 9 9-9 9" fill="none" stroke="#ba626e" stroke-width="1.5"/>
 <rect x="510" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
 <text class="t-human" x="532" y="663" fill="#a5a5b2" font-size="16">FiveM &amp; tools</text>
-<text class="t-human" x="532" y="705" fill="#efeff4" font-size="26">Lua <tspan fill="#555561">/</tspan> C++</text>
+${icon('lua',532,681,27)}<text class="t-human" x="572" y="705" fill="#efeff4" font-size="25">Lua</text>
+${icon('cplusplus',680,681,27)}<text class="t-human" x="720" y="705" fill="#efeff4" font-size="25">C++</text>
 <text class="t-human" x="532" y="746" fill="#aaaab7" font-size="17">Scripting <tspan fill="#555561">·</tspan> Customization</text>
 <path d="m918 650 9 9-9 9m15 0h9" fill="none" stroke="#ba626e" stroke-width="1.5"/>
 
@@ -140,10 +158,10 @@ ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" f
 <path d="M42 1178h916" stroke="#292930"/>
 <text x="42" y="1213" fill="#c8c8d1" font-size="17">Discord</text>
 <rect x="42" y="1232" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
-<text x="60" y="1260" fill="#c8c8d2" font-size="17">@lishaygfx</text>
+${icon('discord',60,1244,22)}<text x="94" y="1260" fill="#c8c8d2" font-size="17">@lishaygfx</text>
 <path d="M450 1248h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
 <rect x="510" y="1232" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
-<text x="528" y="1260" fill="#c8c8d2" font-size="17">@neverwentlegit</text>
+${icon('discord',528,1244,22)}<text x="562" y="1260" fill="#c8c8d2" font-size="17">@neverwentlegit</text>
 <path d="M918 1248h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
 </g>
 <g class="t-text" font-size="13">

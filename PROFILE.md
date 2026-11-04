@@ -23,4 +23,3 @@ The pinned workflow generates the snake, then embeds it into the complete profil
 It runs on relevant preview/main pushes, manually, and daily at 06:23 UTC once merged to the default branch. Repository rules may prevent bot pushes; failures leave the last successful published window intact. GitHub can disable schedules in inactive public repositories.
 
 Review README.md on `preview/red-black-terminal`. The draft PR must be merged before the live profile changes.
-

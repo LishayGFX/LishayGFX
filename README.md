@@ -15,4 +15,3 @@ Public repository and follower counts are refreshed daily. Stars count owned pub
 
 [Maintenance and data sources](PROFILE.md)
 </details>
-

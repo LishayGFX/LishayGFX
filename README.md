@@ -17,7 +17,7 @@
   <a href="https://discord.com/users/202518120479457282">@neverwentlegit</a>
 </p>
 
-### Clothing
+### FiveM clothing design
 
 <img src="assets/clothing/lacoste-shirt.jpg" width="100%" alt="Lacoste shirt design — rendered front, back and side views." />
 

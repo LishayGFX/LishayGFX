@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="190" viewBox="0 0 1000 190" role="img" aria-labelledby="title desc">
-<title id="title">Atlas Survival</title><desc id="desc">Official Minecraft resource pack releases. Open repository.</desc>
-<rect x="1" y="1" width="998" height="188" rx="4" fill="#0c0c0f" stroke="#242429"/>
-<g font-family="Consolas,'Liberation Mono',monospace">
-<text x="35" y="66" fill="#ececf0" font-size="32" letter-spacing="-1">Atlas Survival</text>
-<text x="35" y="104" fill="#93939d" font-size="16">Official Minecraft resource pack releases.</text>
-<text x="35" y="153" fill="#74747e" font-size="13">atlas-survival-resource-pack</text>
-<path d="M931 48h28v28m0-28-34 34" fill="none" stroke="#e33b46" stroke-width="2"/>
-</g></svg>

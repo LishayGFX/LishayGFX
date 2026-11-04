@@ -7,7 +7,7 @@ on:
   push:
     branches: [main, preview/red-black-terminal]
     paths:
-      - scripts/public-stats.mjs
+      - scripts/terminal.mjs
       - .github/workflows/profile.yml
 
 permissions:
@@ -28,8 +28,6 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
-      - name: Fetch public-only metrics
-        run: node scripts/public-stats.mjs
       - name: Animate contribution calendar
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
@@ -38,11 +36,13 @@ jobs:
             assets/snake.svg?color_snake=%23f04458&color_dots=%231b1b22,%23451c29,%237f2439,%23bc3049,%23f04458
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build terminal from public data
+        run: node scripts/terminal.mjs
       - name: Commit refreshed assets to the current branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/metrics.svg assets/snake.svg
+          git add assets/profile-window.svg assets/snake.svg
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'chore: refresh public profile assets'
           git push origin "HEAD:${GITHUB_REF_NAME}"

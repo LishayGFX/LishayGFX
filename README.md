@@ -1,29 +1,18 @@
-<img src="assets/header.svg" width="100%" alt="LishayGFX" />
+<img src="assets/profile-window.svg" width="100%" alt="LishayGFX — LG terminal profile with public GitHub data, Atlas Survival, and animated contributions." />
 
-<br />
-
-<a href="https://github.com/LishayGFX/atlas-survival-resource-pack">
-  <img src="assets/atlas.svg" width="100%" alt="Atlas Survival — Official Minecraft resource pack releases. Open repository." />
-</a>
-
-<br />
-<br />
-
-[All repositories ↗](https://github.com/LishayGFX?tab=repositories)
-
-<br />
-
-<img src="assets/metrics.svg" width="100%" alt="Dated public GitHub snapshot: public repositories, their stars, and followers." />
+<p align="center">
+  <a href="https://github.com/LishayGFX/atlas-survival-resource-pack">Atlas Survival ↗</a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/LishayGFX?tab=repositories">Repositories</a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/LishayGFX?tab=overview">Contributions</a>
+</p>
 
 <details>
-<summary>Contributions</summary>
-<br />
-<img src="assets/snake.svg?v=1" width="100%" alt="Red snake animation of LishayGFX's GitHub contribution calendar." />
+<summary>About this profile</summary>
 
-[View on GitHub ↗](https://github.com/LishayGFX?tab=overview)
+Public repository and follower counts are refreshed daily. Stars count owned public repositories. The date shown is the last successful refresh, not a live counter.
+
+[Maintenance and data sources](PROFILE.md)
 </details>
-
-<br />
-
-<sub>[About this profile](PROFILE.md)</sub>
 

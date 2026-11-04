@@ -3,6 +3,8 @@
 <p align="center">
   <a href="https://github.com/LishayGFX/atlas-survival-resource-pack">Atlas Survival ↗</a>
   &nbsp; · &nbsp;
+  <a href="https://github.com/LishayGFX/atlas-survival-resource-pack/releases/latest">Latest release</a>
+  &nbsp; · &nbsp;
   <a href="https://github.com/LishayGFX?tab=repositories">Repositories</a>
   &nbsp; · &nbsp;
   <a href="https://github.com/LishayGFX?tab=overview">Contributions</a>

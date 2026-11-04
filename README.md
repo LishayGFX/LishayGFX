@@ -25,7 +25,7 @@ Public GitHub data, refreshed daily. Stars count owned public repositories; no p
 
 ### `04 / contributions --animate`
 
-<img src="assets/snake.svg" width="900" alt="Animated snake following LishayGFX's GitHub contribution calendar" />
+<img src="assets/snake.svg?v=1" width="900" alt="Animated snake following LishayGFX's GitHub contribution calendar" />
 
 [Contribution calendar ↗](https://github.com/LishayGFX?tab=overview) · [Refresh history ↗](https://github.com/LishayGFX/LishayGFX/actions/workflows/profile.yml)
 

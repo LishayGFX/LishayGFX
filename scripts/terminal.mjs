@@ -22,22 +22,10 @@ if (counts.some(value => !Number.isSafeInteger(value) || value < 0)) throw new E
 const project = repos.find(repo => repo.name === 'atlas-survival-resource-pack');
 if (!project) throw new Error('Featured public repository unavailable');
 const projectRoot = `/repos/${owner}/${project.name}`;
-const [releaseList, tree, packFile] = await Promise.all([
-  get(`${projectRoot}/releases?per_page=20`),
-  get(`${projectRoot}/git/trees/${encodeURIComponent(project.default_branch)}?recursive=1`),
-  get(`${projectRoot}/contents/pack.mcmeta`),
-]);
-if (tree.truncated) throw new Error('Public project file listing is incomplete');
+const releaseList = await get(`${projectRoot}/releases?per_page=20`);
 const latest = releaseList.find(release => !release.draft && !release.prerelease);
 if (!latest) throw new Error('No public stable release available');
-const asset = latest.assets.find(asset => asset.name.endsWith('.zip'));
-const releaseDate = new Date(latest.published_at).toISOString().slice(0, 10);
 const releaseName = escape(latest.tag_name.slice(0, 24));
-const pack = JSON.parse(Buffer.from(packFile.content, 'base64').toString('utf8')).pack;
-if (!Number.isSafeInteger(pack.pack_format)) throw new Error('Invalid pack format');
-const pngCount = tree.tree.filter(file => file.type === 'blob' && file.path.endsWith('.png')).length;
-const jsonCount = tree.tree.filter(file => file.type === 'blob' && file.path.endsWith('.json')).length;
-const zipSize = asset ? `${Math.round(asset.size / 1024)} KB ZIP` : 'Release available';
 const date = new Date().toISOString().slice(0, 10);
 const year = new Date(user.created_at).getUTCFullYear();
 if (!Number.isInteger(year)) throw new Error('Invalid account creation date');
@@ -55,7 +43,7 @@ if (!/^<svg\s/.test(art) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\s*
 const nestedArt = art.replace('width="384" height="256"', 'x="24" y="77" width="430" height="279"');
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1060" viewBox="0 0 1000 1060" role="img" aria-labelledby="profileTitle profileDesc">
 <title id="profileTitle">LishayGFX</title>
-<desc id="profileDesc">Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites and apps, mostly through vibe coding. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. ${pngCount} PNG textures and ${jsonCount} JSON files. Pack format ${pack.pack_format}. Latest stable release ${releaseName}, published ${releaseDate}. Animated contribution calendar. Updated ${date} UTC.</desc>
+<desc id="profileDesc">Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM work, mostly through vibe coding. Stack: Next.js, React, JavaScript, HTML, FiveM, Lua and C++. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
 <defs>
 <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.5" fill="#ffffff" opacity="0.025"/></pattern>
 <linearGradient id="t-scanGlow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#df4553" stop-opacity="0"/><stop offset="0.85" stop-color="#df4553" stop-opacity="0.16"/><stop offset="1" stop-color="#df4553" stop-opacity="0"/></linearGradient>
@@ -94,8 +82,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1060" 
 ${nestedArt}
 <g clip-path="url(#t-artBounds)"><rect class="t-scan" x="24" y="77" width="430" height="32" fill="url(#t-scanGlow)"/></g>
 <text class="t-human" x="496" y="151" fill="#f2f2f5" font-size="49" font-weight="600">Lishay<tspan fill="#df6570">GFX</tspan></text>
-<text class="t-human" x="498" y="191" fill="#b1b1be" font-size="19">Websites, apps &amp; vibe coding.</text>
-<text class="t-human" x="498" y="223" fill="#868693" font-size="16">On GitHub since ${year}</text>
+<text class="t-human" x="498" y="191" fill="#b1b1be" font-size="19">Websites, apps &amp; FiveM.</text>
+<text class="t-human" x="498" y="223" fill="#9696a3" font-size="16">Mostly vibe coding. On GitHub since ${year}.</text>
 <path d="M498 249h460" stroke="#2c2c34"/>
 ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" fill="#e8e8ee" font-size="25">${value}</text><text class="t-human" x="${498 + i * 165}" y="318" fill="#a2a2ad" font-size="14">${['Public repos', 'Repo stars', 'Followers'][i]}</text>`).join('')}
 </g>
@@ -112,24 +100,23 @@ ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" f
 <rect x="164" y="522" width="100" height="26" rx="13" fill="#282027"/><text class="t-human" x="214" y="540" text-anchor="middle" fill="#cdadb4" font-size="13">Minecraft</text>
 <rect x="274" y="522" width="66" height="26" rx="13" fill="#222228"/><text class="t-human" x="307" y="540" text-anchor="middle" fill="#b4b4bf" font-size="13">JSON</text>
 <rect x="350" y="522" width="60" height="26" rx="13" fill="#222228"/><text class="t-human" x="380" y="540" text-anchor="middle" fill="#b4b4bf" font-size="13">PNG</text>
+<text class="t-human" x="929" y="540" text-anchor="end" fill="#bca4ac" font-size="14">${releaseName}</text>
 <circle cx="917" cy="479" r="19" fill="#20171c"/>
 <path d="M910 472h13v13m0-13-13 13" stroke="#df6570" stroke-width="1.7" fill="none"/>
 </g>
 
 <g class="t-activity">
-<rect x="42" y="590" width="448" height="186" rx="8" fill="#111115" stroke="#282830"/>
-<text class="t-human" x="64" y="623" fill="#c8c8d1" font-size="17">Inside Atlas</text>
-<path d="M64 640h404" stroke="#292930"/>
-<text class="t-human" x="64" y="672" fill="#9d9daa" font-size="16">PNG textures</text><text class="t-human" x="464" y="672" text-anchor="end" fill="#d8d8e1" font-size="17">${pngCount}</text>
-<text class="t-human" x="64" y="711" fill="#9d9daa" font-size="16">JSON definitions</text><text class="t-human" x="464" y="711" text-anchor="end" fill="#d8d8e1" font-size="17">${jsonCount}</text>
-<text class="t-human" x="64" y="750" fill="#9d9daa" font-size="16">Pack format</text><text class="t-human" x="464" y="750" text-anchor="end" fill="#d8d8e1" font-size="17">${pack.pack_format}</text>
-<rect x="510" y="590" width="448" height="186" rx="8" fill="#111115" stroke="#282830"/>
-<text class="t-human" x="532" y="623" fill="#c8c8d1" font-size="17">Latest release</text>
-<circle class="t-dot" cx="930" cy="617" r="3" fill="#d26873"/>
-<path d="M532 640h404" stroke="#292930"/>
-<text class="t-human" x="532" y="680" fill="#efeff4" font-size="29">${releaseName}</text>
-<text class="t-human" x="532" y="716" fill="#a8a8b4" font-size="16">${escape(zipSize)}</text>
-<text class="t-human" x="532" y="750" fill="#91919e" font-size="15">Published ${releaseDate}</text>
+<text class="t-human" x="42" y="608" fill="#c8c8d1" font-size="17">Stack</text>
+<rect x="42" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
+<text class="t-human" x="64" y="663" fill="#a5a5b2" font-size="16">Web</text>
+<text class="t-human" x="64" y="705" fill="#efeff4" font-size="26">Next.js <tspan fill="#555561">/</tspan> React</text>
+<text class="t-human" x="64" y="746" fill="#aaaab7" font-size="17">JavaScript <tspan fill="#555561">·</tspan> HTML</text>
+<path d="m447 650-9 9 9 9m17-18 9 9-9 9" fill="none" stroke="#ba626e" stroke-width="1.5"/>
+<rect x="510" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
+<text class="t-human" x="532" y="663" fill="#a5a5b2" font-size="16">FiveM &amp; tools</text>
+<text class="t-human" x="532" y="705" fill="#efeff4" font-size="26">Lua <tspan fill="#555561">/</tspan> C++</text>
+<text class="t-human" x="532" y="746" fill="#aaaab7" font-size="17">Scripting <tspan fill="#555561">·</tspan> Customization</text>
+<path d="m918 650 9 9-9 9m15 0h9" fill="none" stroke="#ba626e" stroke-width="1.5"/>
 
 <text class="t-human" x="42" y="817" fill="#c8c8d1" font-size="17">Activity</text>
 <text class="t-human" x="958" y="817" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text>

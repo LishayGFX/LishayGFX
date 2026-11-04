@@ -26,4 +26,5 @@ Review README.md on `preview/red-black-terminal`. The draft PR must be merged be
 
 The artwork is a red monochrome adaptation of ASCII Magic's Torus Knot, embedded as pre-rendered SVG frames. See THIRD_PARTY_NOTICES.md for the original source and MIT license. Main titles and profile text use Arial/Helvetica; monospace is limited to artwork and small terminal labels.
 
-The personal focus (websites, apps, and vibe coding) was supplied by the account owner. Project format counts come from the public repository file tree, pack format comes from pack.mcmeta, and the latest non-prerelease release supplies its version, publication date, and ZIP size. These are project details, not inferred personal skill ratings. The generator stops on incomplete tree data or unavailable required sources.
+
+The personal focus and stack reflect technologies named by the owner, with earlier web-app and FiveM conversations reviewed for context. The profile lists Next.js, React, JavaScript, HTML, FiveM, Lua, and C++ without claiming a usage ranking, experience level, or proficiency percentage. No private project names, chat excerpts, or repository details are published. The featured project's current stable version comes from its public releases.

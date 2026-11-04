@@ -33,21 +33,16 @@ if (!/^<svg\s/.test(snake) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\
 }
 const nestedSnake = snake.replace('<svg ', '<svg x="44" y="555" width="912" height="175" ')
   .replace(/ width="880" height="192"/, '');
-const mark = [
-  '██       ██████ ',
-  '██      ██      ',
-  '██      ██      ',
-  '██      ██  ███ ',
-  '██      ██   ██ ',
-  '██      ██   ██ ',
-  '██████   █████  ',
-];
+const art = await readFile('assets/ascii-knot.svg', 'utf8');
+if (!/^<svg\s/.test(art) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\s*=|(?:href|xlink:href)\s*=/i.test(art)) throw new Error('Unexpected artwork content');
+const nestedArt = art.replace('width="384" height="256"', 'x="44" y="98" width="290" height="208"');
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800" role="img" aria-labelledby="profileTitle profileDesc">
 <title id="profileTitle">LishayGFX</title>
-<desc id="profileDesc">LG ASCII mark. LishayGFX, on GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Animated contribution calendar. Updated ${date} UTC.</desc>
+<desc id="profileDesc">Rotating ASCII torus knot from ASCII Magic. LishayGFX, on GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Animated contribution calendar. Updated ${date} UTC.</desc>
 <defs><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.5" fill="#ffffff" opacity="0.025"/></pattern></defs>
 <style>
 .t-text{font-family:Consolas,'Liberation Mono',monospace}
+.t-human{font-family:Arial,Helvetica,sans-serif}
 .t-cursor{animation:t-blink 1.1s step-end 6}
 .t-mark{animation:t-reveal 1.5s steps(7,end) both}
 @keyframes t-blink{50%{opacity:0}}
@@ -64,24 +59,24 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" v
 
 <rect x="24" y="73" width="952" height="257" rx="5" fill="#0e0e12" stroke="#27272f"/>
 <path d="M359 96v211" stroke="#292930"/>
-<g class="t-mark" fill="#df4553" font-size="24" xml:space="preserve">${mark.map((line, i) => `<text x="60" y="${127 + i * 23}">${line}</text>`).join('')}</g>
-<text x="396" y="128" fill="#f0f0f3" font-size="35" font-weight="700" letter-spacing="-1.5">LishayGFX</text>
-<text x="397" y="164" fill="#92929e" font-size="16">github.com/LishayGFX</text>
-<text x="397" y="194" fill="#757580" font-size="14">On GitHub since ${year}</text>
+${nestedArt}
+<text class="t-human" x="396" y="128" fill="#f0f0f3" font-size="38" font-weight="600">LishayGFX</text>
+<text class="t-human" x="397" y="164" fill="#92929e" font-size="18">github.com/LishayGFX</text>
+<text class="t-human" x="397" y="194" fill="#858590" font-size="16">On GitHub since ${year}</text>
 <path d="M397 219h541" stroke="#292930"/>
-${counts.map((value, i) => `<text x="${397 + i * 190}" y="260" fill="#e8e8ee" font-size="27">${value}</text><text x="${397 + i * 190}" y="291" fill="#888894" font-size="12">${['Public repos', 'Repo stars', 'Followers'][i]}</text>`).join('')}
+${counts.map((value, i) => `<text class="t-human" x="${397 + i * 190}" y="260" fill="#e8e8ee" font-size="28">${value}</text><text class="t-human" x="${397 + i * 190}" y="291" fill="#9999a4" font-size="15">${['Public repos', 'Repo stars', 'Followers'][i]}</text>`).join('')}
 
 <rect x="24" y="348" width="952" height="151" rx="5" fill="#0e0e12" stroke="#27272f"/>
 <path d="M24 385h952" stroke="#27272f"/>
-<text x="44" y="373" fill="#bcbcc7" font-size="14">Projects</text>
-<text x="44" y="427" fill="#efeff4" font-size="23">Atlas Survival</text>
-<text x="44" y="460" fill="#93939f" font-size="16">Official Minecraft resource pack releases.</text>
+<text class="t-human" x="44" y="373" fill="#bcbcc7" font-size="16">Projects</text>
+<text class="t-human" x="44" y="427" fill="#efeff4" font-size="26">Atlas Survival</text>
+<text class="t-human" x="44" y="460" fill="#a0a0ab" font-size="18">Official Minecraft resource pack releases.</text>
 <path d="M932 416h16v16m0-16-23 23" stroke="#df4553" stroke-width="2" fill="none"/>
 
 <rect x="24" y="517" width="952" height="218" rx="5" fill="#0e0e12" stroke="#27272f"/>
 <path d="M24 554h952" stroke="#27272f"/>
-<text x="44" y="542" fill="#bcbcc7" font-size="14">Activity</text>
-<text x="954" y="542" text-anchor="end" fill="#777783" font-size="12">Contribution calendar</text>
+<text class="t-human" x="44" y="542" fill="#bcbcc7" font-size="16">Activity</text>
+<text class="t-human" x="954" y="542" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text>
 </g>
 ${nestedSnake}
 <g class="t-text" font-size="13">
@@ -89,5 +84,5 @@ ${nestedSnake}
 <text x="975" y="783" text-anchor="end" fill="#777783">Public data · ${date} UTC</text>
 </g></svg>`;
 await mkdir('assets', { recursive: true });
-await writeFile('assets/profile-window.svg', svg + '\n');
+await writeFile('assets/terminal-art.svg', svg + '\n');
 console.log(`Generated terminal profile from public data (${date} UTC)`);

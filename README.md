@@ -1,4 +1,4 @@
-<img src="assets/profile-window.svg" width="100%" alt="LishayGFX — LG terminal profile with public GitHub data, Atlas Survival, and animated contributions." />
+<img src="assets/terminal-art.svg" width="100%" alt="LishayGFX — ASCII terminal profile with public GitHub data, Atlas Survival, and animated contributions." />
 
 <p align="center">
   <a href="https://github.com/LishayGFX/atlas-survival-resource-pack">Atlas Survival ↗</a>

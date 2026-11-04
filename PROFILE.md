@@ -6,7 +6,7 @@ This is an original black/red terminal design inspired by the composition of [Gi
 
 The README displays one SVG window with a rotating ASCII torus knot from ASCII Magic, public profile data, a featured project, and an animated contribution calendar. Normal links below the image open the repository and profile pages; the drawn project arrow is decorative because links inside an SVG image are not interactive on GitHub.
 
-The ASCII artwork and cursor animations end after a few seconds. Reduced-motion styling disables the header and embedded snake animations. Images include accessible titles and descriptions. No external fonts, scripts, third-party stats cards, inferred role, or invented tech stack are used.
+The panels appear in a short startup sequence. The artwork, scan, border accent, and cursor then loop quietly. Reduced-motion styling disables all motion, including the artwork, scan, border accent, and embedded snake. Images include accessible titles and descriptions. No external fonts, scripts, third-party stats cards, inferred role, or invented tech stack are used.
 
 ## Data and privacy
 

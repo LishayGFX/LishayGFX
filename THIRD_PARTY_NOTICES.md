@@ -26,7 +26,7 @@ SOFTWARE.
 
 ## Project branding
 
-OpenOwl wing logo: https://openowl.cc/assets/logo-wing-small.svg. Valk logo: https://valkbypass.com/assets/valk-newlogo-single.png (resampled to a small transparent PNG for display). Retrieved 2026-11-04 from the project websites at the project owner's request. Brand assets remain the property of their respective owners.
+OpenOwl wing logo: https://openowl.cc/assets/logo-wing-small.svg. Valk logo: https://valkbypass.com/assets/valk-newlogo-single.png (resampled and represented as a small vector thumbnail for self-contained SVG display). Retrieved 2026-11-04 from the project websites at the project owner's request. Brand assets remain the property of their respective owners.
 
 ## Simple Icons
 

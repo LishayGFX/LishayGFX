@@ -44,11 +44,11 @@ const nestedArt = art.replace('width="384" height="256"', 'x="24" y="77" width="
 const brandNames = ['openowl','valk','discord','nextdotjs','react','javascript','html5','lua','cplusplus'];
 const brands = Object.fromEntries(await Promise.all(brandNames.map(async name => {
   const svg = await readFile('assets/brands/' + name + '.svg', 'utf8');
-  if (/<(?:script|foreignObject|iframe)\b|\son\w+\s*=/i.test(svg)) throw new Error('Unexpected brand SVG');
+  if (/<(?:script|foreignObject|iframe|image)\b|\son\w+\s*=/i.test(svg)) throw new Error('Unexpected brand SVG');
   return [name, svg];
 })));
 function icon(name, x, y, size = 24, width = size) {
-  // All logos are checked-in assets; the only raster is a local PNG data URI.
+  // All logos are checked-in vectors; no remote images are loaded.
   return brands[name].replace(/<svg[^>]*>/, (root) => {
     const viewBox = root.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 24 24';
     return '<svg x="' + x + '" y="' + y + '" width="' + width + '" height="' + size + '" viewBox="' + viewBox + '" fill="#b6b6c4" preserveAspectRatio="xMidYMid meet">';

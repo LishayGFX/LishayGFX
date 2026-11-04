@@ -20,14 +20,13 @@ The snake is generated with [Platane/snk](https://github.com/Platane/snk) using 
 
 The pinned workflow generates the snake, then embeds it into the complete profile window alongside fresh public data. Both generated SVGs are committed to the branch the workflow runs on. The preview branch never pushes to main.
 
-It runs on relevant preview/main pushes, manually, and daily at 06:23 UTC once merged to the default branch. Repository rules may prevent bot pushes; failures leave the last successful published window intact. GitHub can disable schedules in inactive public repositories.
+It runs on relevant preview/main pushes, manually, and daily at 06:23 UTC on the default branch. Repository rules may prevent bot pushes; failures leave the last successful published window intact. GitHub can disable schedules in inactive public repositories.
 
-Review README.md on `preview/red-black-terminal`. The draft PR must be merged before the live profile changes.
+The live profile reads README.md and its assets from `main`. The initial design was published through PR #1. Prepare future substantial changes on a separate branch, review the README there, and merge the approved changes to publish them.
 
 The artwork is a red monochrome adaptation of ASCII Magic's Torus Knot, embedded as pre-rendered SVG frames. See THIRD_PARTY_NOTICES.md for the original source and MIT license. Main titles and profile text use Arial/Helvetica; monospace is limited to artwork and small terminal labels.
 
-
-The personal focus and stack reflect technologies named by the owner, with earlier web-app and FiveM conversations reviewed for context. The profile lists Next.js, React, JavaScript, HTML, FiveM, Lua, and C++ without claiming a usage ranking, experience level, or proficiency percentage. No private project names, chat excerpts, or repository details are published. The featured project's current stable version comes from its public releases.
+The personal focus and stack reflect technologies named by the owner, with earlier web-app and FiveM conversations reviewed for context. The profile groups Lua and JavaScript under FiveM scripting; Next.js, React, HTML and CSS under Web and NUI; Rust, C++, Node.js, custom APIs, DLLs and discord.js under Backend and tools; and Python with pywebview under Apps. It makes no claims about usage rankings, experience levels, or proficiency percentages. No private project names, chat excerpts, or repository details are published. The featured project's current stable version comes from its public releases.
 
 Location, ownership of openowl.cc and valkbypass.com, current-work wording, and both Discord handles/IDs were supplied and approved for this profile by the owner. Website links are provided without claims about their features or availability. Clickable project and Discord links are normal README links below the SVG; arrows inside the image are decorative.
 

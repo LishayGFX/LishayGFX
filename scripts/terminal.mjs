@@ -56,7 +56,7 @@ function icon(name, x, y, size = 24, width = size) {
 }
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1507" viewBox="0 0 1000 1507" role="img" aria-labelledby="profileTitle profileDesc">
 <title id="profileTitle">LishayGFX</title>
-<desc id="profileDesc">Based in Israel. Owner of openowl.cc and valkbypass.com. Working on new projects and developing current ones. Discord: lishaygfx and neverwentlegit. Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM work, using AI-assisted development. Stack: Lua and JavaScript for FiveM scripting; HTML, CSS, React and Next.js for interfaces; Rust, C++, Node.js, custom APIs, custom DLLs and discord.js bot work; Python apps with pywebview. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
+<desc id="profileDesc">Based in Israel. Owner of openowl.cc and valkbypass.com. Working on new projects and developing current ones. Discord: lishaygfx and neverwentlegit. Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM scripts. Stack: Lua and JavaScript for FiveM scripting; HTML, CSS, React and Next.js for interfaces; Rust, C++, Node.js, custom APIs, custom DLLs and discord.js bot work; Python apps with pywebview. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
 <defs>
 <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.5" fill="#ffffff" opacity="0.025"/></pattern>
 <linearGradient id="t-scanGlow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#df4553" stop-opacity="0"/><stop offset="0.85" stop-color="#df4553" stop-opacity="0.16"/><stop offset="1" stop-color="#df4553" stop-opacity="0"/></linearGradient>
@@ -95,8 +95,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1507" 
 ${nestedArt}
 <g clip-path="url(#t-artBounds)"><rect class="t-scan" x="24" y="77" width="430" height="32" fill="url(#t-scanGlow)"/></g>
 <text class="t-human" x="496" y="151" fill="#f2f2f5" font-size="49" font-weight="600">Lishay<tspan fill="#df6570">GFX</tspan></text>
-<text class="t-human" x="498" y="191" fill="#b1b1be" font-size="19">Websites, apps &amp; FiveM.</text>
-<text class="t-human" x="498" y="223" fill="#9696a3" font-size="16">AI-assisted development. On GitHub since ${year}.</text>
+<text class="t-human" x="498" y="191" fill="#b1b1be" font-size="19">I build websites, apps and FiveM scripts.</text>
+<text class="t-human" x="498" y="223" fill="#9696a3" font-size="16">On GitHub since ${year}.</text>
 <path d="M498 249h460" stroke="#2c2c34"/>
 ${counts.map((value, i) => `<text class="t-human" x="${498 + i * 165}" y="288" fill="#e8e8ee" font-size="25">${value}</text><text class="t-human" x="${498 + i * 165}" y="318" fill="#a2a2ad" font-size="14">${['Public repos', 'Repo stars', 'Followers'][i]}</text>`).join('')}
 </g>

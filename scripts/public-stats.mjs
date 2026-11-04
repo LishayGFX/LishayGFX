@@ -20,12 +20,12 @@ const values = [repos.length, repos.reduce((sum, repo) => sum + repo.stargazers_
 if (values.some(value => !Number.isSafeInteger(value) || value < 0)) throw new Error('Invalid public metrics');
 const labels = ['PUBLIC REPOS', 'PUBLIC REPO STARS', 'FOLLOWERS'];
 const date = new Date().toISOString().slice(0, 10);
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180" role="img" aria-labelledby="title desc">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="108" viewBox="0 0 1000 108" role="img" aria-labelledby="title desc">
 <title id="title">Public GitHub snapshot for ${owner}</title>
 <desc id="desc">${labels.map((label, i) => `${label}: ${values[i]}`).join('; ')}. Updated ${date} UTC.</desc>
-<rect x="1" y="1" width="898" height="178" rx="14" fill="#101014" stroke="#303039"/>
-<g font-family="ui-monospace,Consolas,monospace">${values.map((value, i) => `<text x="${38 + i * 295}" y="44" fill="#aaaab8" font-size="12">${labels[i]}</text><text x="${38 + i * 295}" y="104" fill="#f04458" font-size="42" font-weight="700">${value}</text>`).join('')}
-<path d="M38 127h824" stroke="#303039"/><text x="38" y="155" fill="#888895" font-size="11">PUBLIC API SNAPSHOT · ${date} UTC · REFRESHED DAILY</text></g></svg>`;
+<path d="M0 1h1000" stroke="#242429"/>
+<g font-family="Consolas,'Liberation Mono',monospace">${values.map((value, i) => `<text x="${i * 330}" y="42" fill="#dedee3" font-size="24">${value}<tspan fill="#77777f" font-size="12">  ${labels[i]}</tspan></text>`).join('')}
+<text x="0" y="83" fill="#77777f" font-size="11">Updated ${date} UTC</text></g></svg>`;
 await mkdir('assets', { recursive: true });
 await writeFile('assets/public-stats.svg', svg + '\n');
 console.log(`Updated public snapshot: ${values.join(', ')} (${date} UTC)`);

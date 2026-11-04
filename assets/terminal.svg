@@ -1,29 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img" aria-labelledby="title desc">
-  <title id="title">LishayGFX — terminal profile</title>
-  <desc id="desc">A charcoal terminal with red accents types initialize profile, then reveals LishayGFX. Code, pixels, and everything in between.</desc>
-  <defs>
-    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#17171c"/><stop offset="1" stop-color="#09090c"/></linearGradient>
-    <clipPath id="typing"><rect x="58" y="95" width="0" height="32"><animate attributeName="width" from="0" to="740" dur="1.6s" fill="freeze"/></rect></clipPath>
-  </defs>
-  <style>
-    text { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; }
-    .reveal { animation: reveal 2.4s ease both; }
-    .cursor { animation: blink 1.2s step-end 5; }
-    @keyframes reveal { 0%,65% { opacity: 0; transform: translateY(5px); } 100% { opacity: 1; transform: translateY(0); } }
-    @keyframes blink { 50% { opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) { .reveal,.cursor { animation: none; } }
-  </style>
-  <rect x="1" y="1" width="898" height="338" rx="18" fill="url(#panel)" stroke="#34343d"/>
-  <path d="M19 1h862" stroke="#f04458" stroke-width="2"/>
-  <path d="M1 52h898" stroke="#2b2b33"/>
-  <circle cx="27" cy="27" r="5" fill="#ef4458"/><circle cx="46" cy="27" r="5" fill="#63303a"/><circle cx="65" cy="27" r="5" fill="#34343d"/>
-  <text x="450" y="32" text-anchor="middle" font-size="12" fill="#a9a9b5">lishaygfx@github — ~/profile</text>
-  <g clip-path="url(#typing)"><text x="58" y="118" font-size="17" fill="#e4e4ec"><tspan fill="#f04458">❯</tspan> ./initialize --profile</text></g>
-  <g class="reveal">
-    <text x="54" y="191" font-size="57" font-weight="700" letter-spacing="-2" fill="#f4f4f8">Lishay<tspan fill="#f04458">GFX</tspan><tspan class="cursor" fill="#f04458">_</tspan></text>
-    <text x="58" y="232" font-size="17" fill="#aaaab8">Code, pixels, and everything in between.</text>
-    <path d="M58 264h784" stroke="#2b2b33"/>
-    <text x="58" y="300" font-size="12" fill="#f04458">PROFILE LOADED</text>
-    <text x="842" y="300" text-anchor="end" font-size="12" fill="#888895">PUBLIC WORK / PERSONAL SPACE</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="290" viewBox="0 0 1000 290" role="img" aria-labelledby="title desc">
+<title id="title">LishayGFX</title><desc id="desc">LishayGFX. A black terminal with a red cursor.</desc>
+<style>text{font-family:Consolas,'Liberation Mono',monospace}.cursor{animation:blink 1.2s step-end 5}.command{animation:type 1.8s steps(20,end) both}@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}@keyframes blink{50%{opacity:0}}@media(prefers-reduced-motion:reduce){.cursor,.command{animation:none}}</style>
+<rect width="1000" height="290" fill="#09090b"/>
+<path d="M38 39h24" stroke="#e33b46" stroke-width="3"/>
+<text x="76" y="44" font-size="13" fill="#79797f">lishaygfx@github</text>
+<text x="34" y="170" font-size="96" font-weight="700" letter-spacing="-7" fill="#f1f1f3">Lishay<tspan fill="#e33b46">GFX</tspan></text>
+<g class="command"><text x="40" y="242" font-size="16" fill="#888890"><tspan fill="#e33b46">❯ </tspan>ls projects/<tspan class="cursor" fill="#e33b46"> ▍</tspan></text></g>
 </svg>

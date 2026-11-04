@@ -1,34 +1,29 @@
-<p align="center">
-  <img src="assets/terminal.svg" width="900" alt="LishayGFX terminal — code, pixels, and everything in between" />
-</p>
+<img src="assets/terminal.svg?v=3" width="100%" alt="LishayGFX" />
 
-### `01 / whoami`
+<br />
 
-Hey, I'm **LishayGFX**. Welcome to my corner of GitHub.
+<a href="https://github.com/LishayGFX/atlas-survival-resource-pack">
+  <img src="assets/atlas.svg" width="100%" alt="Atlas Survival — Official Minecraft resource pack releases. Open repository." />
+</a>
 
-Code, pixels, and everything in between. Explore the projects below to see what I'm sharing.
+<br />
+<br />
 
-[GitHub ↗](https://github.com/LishayGFX) · [Public repositories ↗](https://github.com/LishayGFX?tab=repositories)
+[All repositories ↗](https://github.com/LishayGFX?tab=repositories)
 
-### `02 / ls projects/`
+<br />
 
-| Project | Inside |
-| :--- | :--- |
-| **[Atlas Survival resource pack ↗](https://github.com/LishayGFX/atlas-survival-resource-pack)** | Official Atlas Survival Minecraft resource pack releases. |
-| **[This profile ↗](https://github.com/LishayGFX/LishayGFX)** | A custom red/black terminal, animated SVGs, and a daily public GitHub snapshot. |
+<img src="assets/public-stats.svg?v=3" width="100%" alt="Dated public GitHub snapshot: public repositories, their stars, and followers." />
 
-### `03 / git status --public`
+<details>
+<summary>Contributions</summary>
+<br />
+<img src="assets/snake.svg?v=1" width="100%" alt="Red snake animation of LishayGFX's GitHub contribution calendar." />
 
-<img src="assets/public-stats.svg" width="900" alt="Public GitHub snapshot; open the linked profile for current counts" />
+[View on GitHub ↗](https://github.com/LishayGFX?tab=overview)
+</details>
 
-Public GitHub data, refreshed daily. Stars count owned public repositories; no private repository data or estimated activity. [View current profile ↗](https://github.com/LishayGFX)
+<br />
 
-### `04 / contributions --animate`
+<sub>[About this profile](PROFILE.md)</sub>
 
-<img src="assets/snake.svg?v=1" width="900" alt="Animated snake following LishayGFX's GitHub contribution calendar" />
-
-[Contribution calendar ↗](https://github.com/LishayGFX?tab=overview) · [Refresh history ↗](https://github.com/LishayGFX/LishayGFX/actions/workflows/profile.yml)
-
----
-
-`lishaygfx@github:~$` **Thanks for stopping by.**

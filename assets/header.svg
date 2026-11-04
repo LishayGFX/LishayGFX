@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="290" viewBox="0 0 1000 290" role="img" aria-labelledby="title desc">
+<title id="title">LishayGFX</title><desc id="desc">LishayGFX. A black terminal with a red cursor.</desc>
+<style>text{font-family:Consolas,'Liberation Mono',monospace}.cursor{animation:blink 1.2s step-end 5}.command{animation:type 1.8s steps(20,end) both}@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}@keyframes blink{50%{opacity:0}}@media(prefers-reduced-motion:reduce){.cursor,.command{animation:none}}</style>
+<rect width="1000" height="290" fill="#09090b"/>
+<path d="M38 39h24" stroke="#e33b46" stroke-width="3"/>
+<text x="76" y="44" font-size="13" fill="#79797f">lishaygfx@github</text>
+<text x="34" y="170" font-size="96" font-weight="700" letter-spacing="-7" fill="#f1f1f3">Lishay<tspan fill="#e33b46">GFX</tspan></text>
+<g class="command"><text x="40" y="242" font-size="16" fill="#888890"><tspan fill="#e33b46">❯ </tspan>ls projects/<tspan class="cursor" fill="#e33b46"> ▍</tspan></text></g>
+</svg>

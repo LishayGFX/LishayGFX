@@ -1,4 +1,4 @@
-<img src="assets/terminal.svg?v=3" width="100%" alt="LishayGFX" />
+<img src="assets/header.svg" width="100%" alt="LishayGFX" />
 
 <br />
 
@@ -13,7 +13,7 @@
 
 <br />
 
-<img src="assets/public-stats.svg?v=3" width="100%" alt="Dated public GitHub snapshot: public repositories, their stars, and followers." />
+<img src="assets/metrics.svg" width="100%" alt="Dated public GitHub snapshot: public repositories, their stars, and followers." />
 
 <details>
 <summary>Contributions</summary>

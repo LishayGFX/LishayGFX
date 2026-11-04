@@ -27,5 +27,5 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="108" v
 <g font-family="Consolas,'Liberation Mono',monospace">${values.map((value, i) => `<text x="${i * 330}" y="42" fill="#dedee3" font-size="24">${value}<tspan fill="#77777f" font-size="12">  ${labels[i]}</tspan></text>`).join('')}
 <text x="0" y="83" fill="#77777f" font-size="11">Updated ${date} UTC</text></g></svg>`;
 await mkdir('assets', { recursive: true });
-await writeFile('assets/public-stats.svg', svg + '\n');
+await writeFile('assets/metrics.svg', svg + '\n');
 console.log(`Updated public snapshot: ${values.join(', ')} (${date} UTC)`);

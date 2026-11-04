@@ -34,3 +34,7 @@ Location, ownership of openowl.cc and valkbypass.com, current-work wording, and 
 Project descriptions (OpenOwl as an OSINT system, Valk as a FiveM bypass method) were supplied by the owner. Project logos were fetched from their websites with the owner's authorization. Technology and Discord icons use Simple Icons; source and license notes are in THIRD_PARTY_NOTICES.md. The logos are embedded locally so profile visitors make no requests to the project sites just to see the artwork.
 
 The stack was refined after the owner clarified their usual FiveM tools: Lua, JavaScript, HTML, CSS, Next.js and React, with occasional custom DLL work. Earlier Discord bot chats provide context for Node.js/discord.js. The layout separates FiveM scripting, web/NUI interfaces, and other tools; C++ is not labeled as a FiveM scripting runtime. No additional languages are inferred from what FiveM supports.
+
+The owner also confirmed prior Rust work and building custom APIs. Rust is listed under Backend and tools, and custom APIs are a work area. API work is not used to infer additional languages.
+
+The owner confirmed Python app development with pywebview. This is listed in its own Apps panel, without inferring other Python frameworks or proficiency levels.

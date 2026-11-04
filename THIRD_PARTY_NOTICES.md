@@ -33,3 +33,7 @@ OpenOwl wing logo: https://openowl.cc/assets/logo-wing-small.svg. Valk logo: htt
 Discord, Next.js, React, JavaScript, HTML5, Lua and C++ icons are from https://github.com/simple-icons/simple-icons/tree/develop/icons, retrieved 2026-11-04. Simple Icons distributes its icon collection under CC0 1.0; see assets/brands/SIMPLE-ICONS-LICENSE.md. Brand trademarks remain with their owners.
 
 CSS and Node.js icons are also from the Simple Icons collection under the same CC0 license.
+
+The Rust icon is also from Simple Icons under the same CC0 license.
+
+The Python icon is also from Simple Icons under the same CC0 license. pywebview is shown by name without an invented logo.

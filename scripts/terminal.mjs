@@ -30,18 +30,18 @@ const date = new Date().toISOString().slice(0, 10);
 const year = new Date(user.created_at).getUTCFullYear();
 if (!Number.isInteger(year)) throw new Error('Invalid account creation date');
 
-const snake = await readFile('assets/snake.svg', 'utf8');
+const snake = (await readFile('assets/snake.svg', 'utf8')).replace(/\r\n/g, '\n').trim();
 // The generated SVG is embedded, so the activity shares the same window.
 // Refuse unexpected active content rather than injecting it into our asset.
 if (!/^<svg\s/.test(snake) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\s*=|(?:href|xlink:href)\s*=/i.test(snake)) {
   throw new Error('Unexpected contribution SVG content');
 }
-const nestedSnake = snake.replace('<svg ', '<svg x="42" y="1035" width="916" height="171" ')
+const nestedSnake = snake.replace('<svg ', '<svg x="42" y="1164" width="916" height="171" ')
   .replace(/ width="880" height="192"/, '');
 const art = await readFile('assets/ascii-knot.svg', 'utf8');
 if (!/^<svg\s/.test(art) || /<(?:script|foreignObject|image|iframe)\b|\son\w+\s*=|(?:href|xlink:href)\s*=/i.test(art)) throw new Error('Unexpected artwork content');
 const nestedArt = art.replace('width="384" height="256"', 'x="24" y="77" width="430" height="279"');
-const brandNames = ['openowl','valk','discord','nextdotjs','react','javascript','html5','lua','cplusplus','css','nodedotjs'];
+const brandNames = ['openowl','valk','discord','nextdotjs','react','javascript','html5','lua','cplusplus','css','nodedotjs','rust','python'];
 const brands = Object.fromEntries(await Promise.all(brandNames.map(async name => {
   const svg = await readFile('assets/brands/' + name + '.svg', 'utf8');
   if (/<(?:script|foreignObject|iframe|image)\b|\son\w+\s*=/i.test(svg)) throw new Error('Unexpected brand SVG');
@@ -54,9 +54,9 @@ function icon(name, x, y, size = 24, width = size) {
     return '<svg x="' + x + '" y="' + y + '" width="' + width + '" height="' + size + '" viewBox="' + viewBox + '" fill="#b6b6c4" preserveAspectRatio="xMidYMid meet">';
   });
 }
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1378" viewBox="0 0 1000 1378" role="img" aria-labelledby="profileTitle profileDesc">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1507" viewBox="0 0 1000 1507" role="img" aria-labelledby="profileTitle profileDesc">
 <title id="profileTitle">LishayGFX</title>
-<desc id="profileDesc">Based in Israel. Owner of openowl.cc and valkbypass.com. Working on new projects and developing current ones. Discord: lishaygfx and neverwentlegit. Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM work, mostly through vibe coding. Stack: Lua and JavaScript for FiveM scripting; HTML, CSS, React and Next.js for interfaces; C++ and custom DLLs, plus Node.js and discord.js bot work. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
+<desc id="profileDesc">Based in Israel. Owner of openowl.cc and valkbypass.com. Working on new projects and developing current ones. Discord: lishaygfx and neverwentlegit. Rotating ASCII torus knot from ASCII Magic. LishayGFX builds websites, apps and FiveM work, mostly through vibe coding. Stack: Lua and JavaScript for FiveM scripting; HTML, CSS, React and Next.js for interfaces; Rust, C++, Node.js, custom APIs, custom DLLs and discord.js bot work; Python apps with pywebview. On GitHub since ${year}. ${counts[0]} public repositories, ${counts[1]} public repository stars, ${counts[2]} followers. Atlas Survival: ${escape(project.description || project.name)}. Latest stable release ${releaseName}. Animated contribution calendar. Updated ${date} UTC.</desc>
 <defs>
 <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.5" fill="#ffffff" opacity="0.025"/></pattern>
 <linearGradient id="t-scanGlow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#df4553" stop-opacity="0"/><stop offset="0.85" stop-color="#df4553" stop-opacity="0.16"/><stop offset="1" stop-color="#df4553" stop-opacity="0"/></linearGradient>
@@ -82,10 +82,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1378" 
 @keyframes t-pulse{50%{opacity:0.4}}
 @media(prefers-reduced-motion:reduce){.t-cursor,.t-info,.t-project,.t-activity,.t-typing,.t-dot,.c,.s,.u{animation:none!important}.t-scan,.t-trace{display:none}}
 </style>
-<rect x="1" y="1" width="998" height="1376" rx="14" fill="#0e0e12" stroke="#33333a"/>
-<rect x="2" y="2" width="996" height="1374" rx="13" fill="url(#grain)"/>
+<rect x="1" y="1" width="998" height="1505" rx="14" fill="#0e0e12" stroke="#33333a"/>
+<rect x="2" y="2" width="996" height="1503" rx="13" fill="url(#grain)"/>
 <path d="M15 1h970" stroke="#57505a" stroke-opacity="0.7"/>
-<path d="M1 49h998M1 1335h998" stroke="#29292f"/>
+<path d="M1 49h998M1 1464h998" stroke="#29292f"/>
 <circle class="t-dot" cx="26" cy="25" r="4" fill="#df4553"/><circle cx="42" cy="25" r="4" fill="#45454d"/><circle cx="58" cy="25" r="4" fill="#45454d"/>
 <g class="t-text">
 <text x="86" y="31" fill="#9b9ba6" font-size="13">lishaygfx / profile</text>
@@ -135,45 +135,50 @@ ${icon('valk',526,482,80)}
 </g>
 <g transform="translate(0 172)"><g class="t-activity">
 <text class="t-human" x="42" y="608" fill="#c8c8d1" font-size="17">Stack</text>
-<rect x="42" y="629" width="292" height="185" rx="8" fill="#111115" stroke="#282830"/>
+<rect x="42" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
 <text class="t-human" x="64" y="663" fill="#a5a5b2" font-size="16">FiveM scripting</text>
-${icon('lua',64,683,24)}<text class="t-human" x="100" y="704" fill="#efeff4" font-size="23">Lua</text>
-${icon('javascript',64,725,23)}<text class="t-human" x="100" y="746" fill="#efeff4" font-size="21">JavaScript</text>
-<text class="t-human" x="64" y="791" fill="#8f8f9c" font-size="13">Client &amp; server scripts</text>
+${icon('lua',64,682,24)}<text class="t-human" x="100" y="704" fill="#efeff4" font-size="23">Lua</text>
+${icon('javascript',224,682,24)}<text class="t-human" x="260" y="704" fill="#efeff4" font-size="21">JavaScript</text>
+<text class="t-human" x="64" y="750" fill="#9292a0" font-size="14">Client &amp; server scripts</text>
 
-<rect x="354" y="629" width="292" height="185" rx="8" fill="#111115" stroke="#282830"/>
-<text class="t-human" x="376" y="663" fill="#a5a5b2" font-size="16">Web &amp; NUI</text>
-${icon('nextdotjs',376,684,22)}<text class="t-human" x="407" y="704" fill="#efeff4" font-size="19">Next.js</text>
-${icon('react',520,684,22)}<text class="t-human" x="551" y="704" fill="#efeff4" font-size="19">React</text>
-${icon('html5',376,726,22)}<text class="t-human" x="407" y="746" fill="#b9b9c5" font-size="17">HTML</text>
-${icon('css',520,726,22)}<text class="t-human" x="551" y="746" fill="#b9b9c5" font-size="17">CSS</text>
-<text class="t-human" x="376" y="791" fill="#8f8f9c" font-size="13">Websites &amp; in-game interfaces</text>
+<rect x="510" y="629" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
+<text class="t-human" x="532" y="663" fill="#a5a5b2" font-size="16">Web &amp; NUI</text>
+${icon('nextdotjs',532,682,24)}<text class="t-human" x="568" y="704" fill="#efeff4" font-size="23">Next.js</text>
+${icon('react',732,682,24)}<text class="t-human" x="768" y="704" fill="#efeff4" font-size="23">React</text>
+${icon('html5',532,729,22)}<text class="t-human" x="565" y="750" fill="#aaaab7" font-size="17">HTML</text>
+${icon('css',732,729,22)}<text class="t-human" x="765" y="750" fill="#aaaab7" font-size="17">CSS</text>
 
-<rect x="666" y="629" width="292" height="185" rx="8" fill="#111115" stroke="#282830"/>
-<text class="t-human" x="688" y="663" fill="#a5a5b2" font-size="16">Tools &amp; bots</text>
-${icon('cplusplus',688,682,25)}<text class="t-human" x="725" y="704" fill="#efeff4" font-size="23">C++</text>
-${icon('nodedotjs',688,724,25)}<text class="t-human" x="725" y="746" fill="#efeff4" font-size="21">Node.js</text>
-<text class="t-human" x="688" y="791" fill="#8f8f9c" font-size="13">Custom DLLs &amp; discord.js</text>
+<rect x="42" y="796" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
+<text class="t-human" x="64" y="830" fill="#a5a5b2" font-size="16">Backend &amp; tools</text>
+${icon('rust',64,849,24)}<text class="t-human" x="100" y="871" fill="#efeff4" font-size="23">Rust</text>
+${icon('cplusplus',224,849,24)}<text class="t-human" x="260" y="871" fill="#efeff4" font-size="23">C++</text>
+${icon('nodedotjs',64,897,22)}<text class="t-human" x="97" y="918" fill="#aaaab7" font-size="17">Node.js</text>
+<text class="t-human" x="224" y="918" fill="#9292a0" font-size="13">APIs · DLLs · discord.js</text>
 
-<text class="t-human" x="42" y="855" fill="#c8c8d1" font-size="17">Activity</text>
-<text class="t-human" x="958" y="855" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text></g>
+<rect x="510" y="796" width="448" height="147" rx="8" fill="#111115" stroke="#282830"/>
+<text class="t-human" x="532" y="830" fill="#a5a5b2" font-size="16">Apps</text>
+${icon('python',532,847,27)}<text class="t-human" x="572" y="871" fill="#efeff4" font-size="25">Python</text>
+<text class="t-human" x="532" y="918" fill="#aaaab7" font-size="17">pywebview <tspan fill="#555561">·</tspan> Desktop apps</text>
+
+<text class="t-human" x="42" y="984" fill="#c8c8d1" font-size="17">Activity</text>
+<text class="t-human" x="958" y="984" text-anchor="end" fill="#90909c" font-size="14">Contribution calendar</text></g>
 </g>
 </g>
 <g class="t-activity">${nestedSnake}</g>
 <g class="t-human t-activity">
-<path d="M42 1216h916" stroke="#292930"/>
-<text x="42" y="1251" fill="#c8c8d1" font-size="17">Discord</text>
-<rect x="42" y="1270" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
-${icon('discord',60,1282,22)}<text x="94" y="1298" fill="#c8c8d2" font-size="17">@lishaygfx</text>
-<path d="M450 1286h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
-<rect x="510" y="1270" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
-${icon('discord',528,1282,22)}<text x="562" y="1298" fill="#c8c8d2" font-size="17">@neverwentlegit</text>
-<path d="M918 1286h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
+<path d="M42 1345h916" stroke="#292930"/>
+<text x="42" y="1380" fill="#c8c8d1" font-size="17">Discord</text>
+<rect x="42" y="1399" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
+${icon('discord',60,1411,22)}<text x="94" y="1427" fill="#c8c8d2" font-size="17">@lishaygfx</text>
+<path d="M450 1415h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
+<rect x="510" y="1399" width="448" height="44" rx="6" fill="#141419" stroke="#2b2b33"/>
+${icon('discord',528,1411,22)}<text x="562" y="1427" fill="#c8c8d2" font-size="17">@neverwentlegit</text>
+<path d="M918 1415h10v10m0-10-10 10" fill="none" stroke="#bb6572" stroke-width="1.5"/>
 </g>
 <g class="t-text" font-size="13">
-<text x="25" y="1361" fill="#df4553">❯</text>
-<g class="t-typing"><text x="43" y="1361" fill="#a4a4b1">git status <tspan class="t-cursor" fill="#df4553">▍</tspan></text></g>
-<text x="975" y="1361" text-anchor="end" fill="#878793">Public data · ${date} UTC</text>
+<text x="25" y="1490" fill="#df4553">❯</text>
+<g class="t-typing"><text x="43" y="1490" fill="#a4a4b1">git status <tspan class="t-cursor" fill="#df4553">▍</tspan></text></g>
+<text x="975" y="1490" text-anchor="end" fill="#878793">Public data · ${date} UTC</text>
 </g></svg>`;
 await mkdir('assets', { recursive: true });
 await writeFile('assets/terminal-art.svg', svg + '\n');
